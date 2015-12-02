@@ -1,57 +1,54 @@
 {
-	"id": "nodebb-plugin-bbcodes",
-	"name": "NodeBB BBCode Support",
-	"description": "BBCode parser for NodeBB. It is strongly recommended to turn nodebb-plugin-markdown off to prevent collisions",
-	"url": "https://github.com/APXEOLOG/nodebb-plugin-bbcodes",
-	"library": "./library.js",
-	"templates": "./templates",
-	"hooks": [{
-		"hook": "filter:parse.post",
-		"method": "parse",
-		"priority": 6
-	}, {
-		"hook": "static:app.load",
-		"method": "load"
-	}, {
-		"hook": "filter:admin.header.build",
-		"method": "extendAdminMenu"
-	}, {
-		"hook": "filter:post.save",
-		"method": "onPostSave"
-	}, {
-		"hook": "filter:post.edit",
-		"method": "onPostEdit"
-	}, {
-		"hook": "action:post.purge",
-		"method": "onPostPurge"
-	}, {
-		"hook": "filter:post.getFields",
-		"method": "onPostGetFields"
-	}],
-	"staticDirs": {
-		"static": "./static"
-	},
-	"scripts": [
-		"./static/client.js",
-		"./static/jquery.wysibb.js",
-		"./static/buttons.js",
-		"./static/composer.js",
-		"../nodebb-plugin-composer-default/static/lib/composer/categoryList.js",
-		"../nodebb-plugin-composer-default/static/lib/composer/controls.js",
-		"../nodebb-plugin-composer-default/static/lib/composer/drafts.js",
-		"../nodebb-plugin-composer-default/static/lib/composer/formatting.js",
-		"../nodebb-plugin-composer-default/static/lib/composer/preview.js",
-		"../nodebb-plugin-composer-default/static/lib/composer/resize.js",
-		"../nodebb-plugin-composer-default/static/lib/composer/tags.js",
-		"../nodebb-plugin-composer-default/static/lib/composer/uploads.js"
-	],
-	"less": [
-		"../nodebb-plugin-composer-default/static/less/composer.less"
-	],
-	"css": [
-		"./static/css/wbbtheme.css"
-	],
-	"nbbpm": {
-        "compatibility": "^0.7.0"
-    }
+  "id": "nodebb-plugin-bbcodes",
+  "name": "NodeBB BBCode Support",
+  "description": "BBCode parser for NodeBB. It is strongly recommended to turn nodebb-plugin-markdown off to prevent collisions",
+  "url": "https://github.com/APXEOLOG/nodebb-plugin-bbcodes",
+  "library": "./library.js",
+  "templates": "./templates",
+  "hooks": [{
+    "hook": "filter:parse.post",
+    "method": "parse",
+    "priority": 6
+  }, {
+    "hook": "static:app.load",
+    "method": "load"
+  }, {
+    "hook": "filter:admin.header.build",
+    "method": "extendAdminMenu"
+  }, {
+    "hook": "filter:post.save",
+    "method": "onPostSave"
+  }, {
+    "hook": "filter:post.edit",
+    "method": "onPostEdit"
+  }, {
+    "hook": "action:post.purge",
+    "method": "onPostPurge"
+  }, {
+    "hook": "filter:post.getFields",
+    "method": "onPostGetFields"
+  }],
+  "staticDirs": {
+    "static": "./static"
+  },
+  "scripts": [
+    "./static/client.js",
+    "./static/jquery.wysibb.js",
+    "./static/buttons.js",
+    "./static/composer.js",
+    "../nodebb-plugin-composer-default/static/lib/composer/categoryList.js",
+    "../nodebb-plugin-composer-default/static/lib/composer/controls.js",
+    "../nodebb-plugin-composer-default/static/lib/composer/drafts.js",
+    "../nodebb-plugin-composer-default/static/lib/composer/formatting.js",
+    "../nodebb-plugin-composer-default/static/lib/composer/preview.js",
+    "../nodebb-plugin-composer-default/static/lib/composer/resize.js",
+    "../nodebb-plugin-composer-default/static/lib/composer/tags.js",
+    "../nodebb-plugin-composer-default/static/lib/composer/uploads.js"
+  ],
+  "less": [
+    "../nodebb-plugin-composer-default/static/less/composer.less"
+  ],
+  "css": [
+    "./static/css/wbbtheme.css"
+  ]
 }

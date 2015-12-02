@@ -33,8 +33,8 @@ $(document).ready(function() {
 			});
 
 			$(window).on('action:composer.post.new', function(ev, data) {
-				console.log("Reply");
-				console.log(data);
+				// console.log("Reply");
+				// console.log(data);
 				composer.newReply(data.tid, data.pid, data.topicName, data.text);
 			});
 
@@ -73,7 +73,7 @@ $(document).ready(function() {
 				}*/
 			}
 		});
-		// Prebind 'Submit' method to sync textarea with html content 
+		// Prebind 'Submit' method to sync textarea with html content
 		postContainer.find('.composer-submit').preBind('click', function() {
 			window.WysiBB.sync();
 		});
@@ -81,8 +81,9 @@ $(document).ready(function() {
 
 	$(window).on('action:composer.resize', function(ev, data) {
 		require(['composer'], function(composer) {
-			$('.wysibb-text-editor').css('min-height', data.containerHeight);
-			$('.wysibb-text-editor').css('max-height', data.containerHeight);
+			var height = data.containerHeight - 80
+			$('.wysibb-text-editor').css('min-height', height);
+			$('.wysibb-text-editor').css('max-height', height);
 		});
 	});
 });

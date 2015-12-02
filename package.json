@@ -21,11 +21,12 @@
     "url": "https://github.com/APXEOLOG/nodebb-plugin-bbcodes/issues"
   },
   "dependencies": {
-    "jade": "~1.11.0"
+    "jade": "~1.11.0",
+    "underscore": "^1.8.3"
   },
   "homepage": "https://github.com/APXEOLOG/nodebb-plugin-bbcodes",
   "scripts": {},
   "nbbpm": {
-    "compatibility": "^0.7.0"
+    "compatibility": "^0.7.0 || ^0.9.0"
   }
 }

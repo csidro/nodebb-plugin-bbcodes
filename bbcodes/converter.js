@@ -1,6 +1,6 @@
 (function(module) {
 	// This code is taken from https://github.com/oleander/markdown-to-bbcode-js
-	var _ = module.parent.require("underscore");
+	var _ = require("underscore");
 
 	var Markdown = function() {
 		if (!(this instanceof arguments.callee)) {
@@ -274,13 +274,13 @@
 		    match: /regexp/,
 		    remove: /regexp/
 		  }
-		  
+
 		  @template A underscore.js template
 		  @n Where #renderList should start look for a list
 		  @lines A list of lines for the entire document
 		  @match How do we know what a list item looks like?
 		  @remove What should be striped out before we can call it a list item?
-		@return Hash 
+		@return Hash
 		  return {
 		    found: true,
 		    data: data,
@@ -308,7 +308,7 @@
 						}
 					};
 
-					/* 
+					/*
 					  This is the end of the list
 					  Let's render it!
 					*/

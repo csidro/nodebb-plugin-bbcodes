@@ -99,7 +99,7 @@
 				}
 				if (this.children.length > 0)
 					iterateOverChildren(0);
-				else 
+				else
 					processContent();
 			}
 		}
@@ -265,7 +265,7 @@
 						} else {
 							this.state = STATE_CONTENT;
 							continue;
-						}	
+						}
 					} else if (this.cur() === ']') {
 						var token = this.token();
 						if (this.bbcodes[token] !== undefined) {
@@ -486,14 +486,14 @@
 							// Looks like shit, don't link existing aspoiler with new post
 							callback(info.value);
 						}
-					});					
+					});
 				} else {
 					// Generate new spoiler ID
 					generateNextDynamicID(info.data.postData.pid, function(spoilerId) {
 						// Store spoiler content in the specific table
 						db.setObjectField('bb-ajax-spoiler:content', spoilerId, info.value);
 						// Add id to code
-						if (info.node.parameters === undefined) info.node.parameters = {}; 
+						if (info.node.parameters === undefined) info.node.parameters = {};
 						info.node.parameters.id = spoilerId;
 						// Return raw input without content
 						callback(info.node.getOwnStringRepresentation());
@@ -519,7 +519,7 @@
 						// Store spoiler content in the specific table
 						db.setObjectField('bb-ajax-spoiler:content', spoilerId, info.value);
 						// Add id to code
-						if (info.node.parameters === undefined) info.node.parameters = {}; 
+						if (info.node.parameters === undefined) info.node.parameters = {};
 						info.node.parameters.id = spoilerId;
 						info.data.postData.dinIds.push(spoilerId);
 						// Return raw input without content
@@ -551,14 +551,14 @@
 		}
 	};
 
-	var winston = require('winston'),
+	var winston = module.parent.require('winston'),
 		meta = module.parent.require('./meta'),
 		plugins = module.parent.require('./plugins'),
 		jade = require('jade'),
 		db = module.parent.require('./database'),
-		async = require('async'),
+		async = module.parent.require('async'),
 		privileges = module.parent.require('./privileges'),
-		
+
 
 		sanitize = true,
 		globalDynamicID = 0;
@@ -569,7 +569,7 @@
 	function composerInit() {
 		checkCompatibility(function(err, checks) {
 			if (checks.composer) {
-				require('nodebb-plugin-composer-default').init({}, function(){});
+				module.parent.require('nodebb-plugin-composer-default').init({}, function(){});
 			} else {
 				winston.warn('[plugin/composer-redactor] Another composer plugin is active! Please disable all other composers.');
 			}
@@ -624,7 +624,7 @@
 					return res.json({ success: false });
 				}
 			});
-		});	
+		});
 	}
 
 	function generateNextDynamicID(pid, callback) {
@@ -679,7 +679,7 @@
 	// plugins.fireHook('filter:post.getFields', {posts: [data], fields: fields}, next)
 	module.exports.onPostGetFields = function(data, next) {
 		// Check if stored ID's changes and perform cleanup if needed
-		// Let's try to detect composer's request. 
+		// Let's try to detect composer's request.
 		// This is fcking hook but we will watch for fields=[content, tid, uid, handle]
 		// Assuming that this request is from composer
 		if (data.fields.indexOf("content") >= 0
@@ -713,7 +713,7 @@
 			data.postData.content = result;
 			callback(null, data);
 		}).parse();
-		
+
 	};
 
 	function adminPanelController(req, res, next) {
@@ -765,7 +765,7 @@
 			}
 		})
 	};
-	
+
 	module.exports.load = function(app, next) {
 		// Load globalDynamicID
 		db.get('bbcodes-dynamic-id', function(err, value) {
