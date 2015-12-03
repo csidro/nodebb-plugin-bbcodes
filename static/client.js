@@ -53,7 +53,7 @@ $(document).ready(function() {
 			textarea = postContainer.find('#wysibb-editor');
 
 		window.WysiBB = textarea.wysibb({
-			buttons: "bold,italic,underline,strike,|,img,video,link,|,bullist,numlist,|,fontcolor,fontsize,fontfamily,|,justifyleft,justifycenter,justifyright,|,quote,code,table",
+			buttons: "bold,italic,underline,strike,|,img,video,link,|,bullist,numlist,|,fontcolor,fontsize,fontfamily,|,justifyleft,justifycenter,justifyright,|,quote,code,table,|,spoiler",
 			allButtons: {
 				quote: {
 					title: 'Quote',
@@ -62,7 +62,7 @@ $(document).ready(function() {
 						'<blockquote>{SELTEXT}</blockquote>':"[quote]{SELTEXT}[/quote]",
 						'<p>@{AUTHOR} said:</p><blockquote>{SELTEXT}</blockquote>':'[quote={AUTHOR}]{SELTEXT}[/quote]'
 					}
-				}/*,
+				},
 				spoiler: {
 					title: 'Spoiler',
 					buttonText: 'Spoiler',
@@ -70,7 +70,7 @@ $(document).ready(function() {
 						'<div class="panel panel-default"><div class="panel-heading"><button type="button" onclick="$(this).parent().next().collapse(\'toggle\');" class="btn btn-default btn-xs btn-ajx-spoiler" data-toggle="collapse">Spoiler</button></div><div class="panel-collapse collapse out"><div class="panel-body">{SELTEXT}</div></div></div>':'[spoiler]{SELTEXT}[/spoiler]',
 						'<div class="panel panel-default"><div class="panel-heading"><button type="button" onclick="$(this).parent().next().collapse(\'toggle\');" class="btn btn-default btn-xs btn-ajx-spoiler" data-toggle="collapse">{NAME}</button></div><div class="panel-collapse collapse out"><div class="panel-body">{SELTEXT}</div></div></div>':'[spoiler={NAME}]{SELTEXT}[/spoiler]'
 					}
-				}*/
+				}
 			}
 		});
 		// Prebind 'Submit' method to sync textarea with html content
